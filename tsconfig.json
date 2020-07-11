@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+      "module": "commonjs",
+      "target": "es2017",
+      "noImplicitAny": false,
+      "strictPropertyInitialization": false,
+      "sourceMap": false,
+      "outDir": "./dist",
+      "declaration": true,
+      "experimentalDecorators": true,
+      "lib": ["es2017", "ES2017.Object"]
+  },
+  "exclude": ["node_modules", "workspace", "test", ".env", ".env.example", "ws.json"]
+}
