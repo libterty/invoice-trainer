@@ -10,9 +10,9 @@ export class TensorFlowInception {
   public net: _cv.Net;
 
   constructor() {
-    this.inceptionModelPath = '../data/dnn/tf-inception';
-    this.modelFile = path.resolve(this.inceptionModelPath, 'tensorflow_inception_graph.pb');
-    this.classNamesFile = path.resolve(this.inceptionModelPath, 'imagenet_comp_graph_label_strings.txt');
+    this.inceptionModelPath = '../../data/dnn/tf-inception';
+    this.modelFile = path.resolve(__dirname, `${this.inceptionModelPath}/tensorflow_inception_graph.pb`);
+    this.classNamesFile = path.resolve(__dirname, `${this.inceptionModelPath}/imagenet_comp_graph_label_strings.txt`);
 
     this.init();
 
@@ -33,7 +33,7 @@ export class TensorFlowInception {
     // inception model works with 224 x 224 images, so we resize
     // our input images and pad the image with white pixels to
     // make the images have the same width and height
-    const maxImgDim: number = 224;
+    const maxImgDim = 224;
     const white: _cv.Vec3 = new _cv.Vec3(255, 255, 255);
     const imgResized: _cv.Mat = _cv.imread(img).resizeToMax(maxImgDim).padToSquare(white);
 
@@ -46,7 +46,7 @@ export class TensorFlowInception {
     const outputBlob: _cv.Mat = this.net.forward();
 
     // find all labels with a minimum confidence
-    const minConfidence: number = 0.05;
+    const minConfidence = 0.05;
     const locations: _cv.Point2[] =
       outputBlob
         .threshold(minConfidence, 1, _cv.THRESH_BINARY)

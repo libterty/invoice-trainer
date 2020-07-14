@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jimp": "^0.14.0",
     "opencv4nodejs": "^5.6.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6"
